@@ -28,15 +28,9 @@ namespace CookingPrototype.Controllers {
 		float _timer = 0f;
 		Stack<List<Order>> _orderSets;
 
-		bool HasFreePlaces {
-			get { return CustomerPlaces.Any(x => x.IsFree); }
-		}
+		bool HasFreePlaces => CustomerPlaces.Any(x => x.IsFree);
 
-		public bool IsComplete {
-			get {
-				return TotalCustomersGenerated >= CustomersTargetNumber && CustomerPlaces.All(x => x.IsFree);
-			}
-		}
+		public bool IsComplete => TotalCustomersGenerated >= CustomersTargetNumber && CustomerPlaces.All(x => x.IsFree);
 
 		void Awake() {
 			if ( Instance != null ) {
@@ -51,9 +45,7 @@ namespace CookingPrototype.Controllers {
 			}
 		}
 
-		void Start() {
-			Init();
-		}
+		void Start() => Init();
 
 		void Update() {
 			if ( !HasFreePlaces ) {
@@ -139,7 +131,15 @@ namespace CookingPrototype.Controllers {
 		/// <param name="order">Заказ, который пытаемся отдать</param>
 		/// <returns>Флаг - результат, удалось ли успешно отдать заказ</returns>
 		public bool ServeOrder(Order order) {
-			throw  new NotImplementedException("ServeOrder: this feature is not implemented.");
+			var customerPlaces = CustomerPlaces.Where(x => !x.IsFree && x.CurCustomer.HasOrder(order)).ToList();
+			var customer = customerPlaces.Min(place => place.CurCustomer);
+			
+			if ( customer == default ) return false;
+
+			customer.ServeOrder(order);
+			if (customer.IsComplete) FreeCustomer(customer);
+			return true;
 		}
+
 	}
 }

@@ -4,7 +4,7 @@ namespace CookingPrototype.Kitchen {
 	public sealed class CustomerPlace : MonoBehaviour {
 		public Customer CurCustomer { get; private set; } = null;
 
-		public bool IsFree { get { return CurCustomer == null; } }
+		public bool IsFree => CurCustomer == null;
 
 		public void PlaceCustomer(Customer customer) {
 			CurCustomer = customer;

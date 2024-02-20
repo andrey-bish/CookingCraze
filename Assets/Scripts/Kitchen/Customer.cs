@@ -1,14 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 using System.Collections.Generic;
-
+using System.Linq;
 using  CookingPrototype.Controllers;
 
 using JetBrains.Annotations;
+using Random = UnityEngine.Random;
 
 namespace CookingPrototype.Kitchen {
-	public sealed class Customer : MonoBehaviour {
+	public sealed class Customer : MonoBehaviour, IComparable<Customer> {
 		public Image                    CustomerImage   = null;
 		public List<Sprite>             CustomerSprites = null;
 		public Image                    TimerBar        = null;
@@ -20,14 +22,12 @@ namespace CookingPrototype.Kitchen {
 		float       _timer    = 0f;
 		bool        _isActive = false;
 
-		public float WaitTime {
-			get { return CustomersController.Instance.CustomerWaitTime - _timer; }
-		}
+		public float WaitTime => CustomersController.Instance.CustomerWaitTime - _timer;
 
 		/// <summary>
 		/// Есть ли необслуженные заказы у указанного посетителя.
 		/// </summary>
-		public bool IsComplete { get { return _orders.Count == 0; } }
+		public bool IsComplete => _orders.Count == 0;
 
 		void Update() {
 			if ( !_isActive ) {
@@ -70,6 +70,10 @@ namespace CookingPrototype.Kitchen {
 			_isActive = true;
 			_timer = 0f;
 		}
+		
+		public int CompareTo(Customer other) => WaitTime.CompareTo(other.WaitTime);
+
+		public bool HasOrder(Order order) => OrderPlaces.Any(x => x.IsActive && x.CurOrder.Name == order.Name);
 
 		[UsedImplicitly]
 		public bool ServeOrder(Order order) {
