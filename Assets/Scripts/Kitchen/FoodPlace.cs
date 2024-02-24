@@ -1,9 +1,12 @@
 using UnityEngine;
 
 using System;
+using JetBrains.Annotations;
 
 namespace CookingPrototype.Kitchen {
 	public class FoodPlace : AbstractFoodPlace {
+		
+		
 		public bool  Cook         = false;
 		public float CookTime     = 0f;
 		public float OvercookTime = 0f;
@@ -11,11 +14,13 @@ namespace CookingPrototype.Kitchen {
 		public event Action FoodPlaceUpdated;
 
 		float _timer      = 0f;
+		
+		private string _foodName;
 
 		public Food CurFood   { get; private set; } = null;
 		public bool IsCooking { get; private set; } = false;
 
-		public bool IsFree { get { return CurFood == null; } }
+		public bool IsFree => CurFood == null;
 
 		public float TimerNormalized {
 			get {
@@ -28,6 +33,8 @@ namespace CookingPrototype.Kitchen {
 				return _timer / OvercookTime;
 			}
 		}
+
+		public override void Init(string foodName) => _foodName = foodName;
 
 		void Update() {
 			if ( IsFree || !Cook || !IsCooking ) {
@@ -57,6 +64,11 @@ namespace CookingPrototype.Kitchen {
 					break;
 				}
 			}
+		}
+		
+		[UsedImplicitly]
+		public void TryAddFood() {
+			if ( IsFree ) TryPlaceFood(new Food(_foodName));
 		}
 
 		public override bool TryPlaceFood(Food food) {

@@ -568,6 +568,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 55610697}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.FoodPlace, Assembly-CSharp
+          m_MethodName: TryAddFood
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 55610700}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryTransferFood
@@ -1779,6 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: HotDogBun
+  IsInit: 1
   Places:
   - {fileID: 1177523077}
   - {fileID: 1617312760}
@@ -3707,6 +3720,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 541366787}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.OrderPlace, Assembly-CSharp
+          m_MethodName: TryAddBun
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 541366785}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryServeOrder
@@ -3906,6 +3931,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 556689272}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.FoodPlace, Assembly-CSharp
+          m_MethodName: TryAddFood
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 556689276}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryTransferFood
@@ -4509,6 +4546,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 639950379}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.OrderPlace, Assembly-CSharp
+          m_MethodName: TryAddBun
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 639950377}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryServeOrder
@@ -5466,6 +5515,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 748752193}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.FoodPlace, Assembly-CSharp
+          m_MethodName: TryAddFood
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 748752196}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryTransferFood
@@ -5919,6 +5980,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 841504825}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.OrderPlace, Assembly-CSharp
+          m_MethodName: TryAddBun
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 841504823}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryServeOrder
@@ -6906,6 +6979,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 949728618}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.OrderPlace, Assembly-CSharp
+          m_MethodName: TryAddBun
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 949728616}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryServeOrder
@@ -7588,6 +7673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: HotDogMustard
+  IsInit: 0
   Places:
   - {fileID: 1177523077}
   - {fileID: 1617312760}
@@ -8609,6 +8695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: BurgerCheese
+  IsInit: 0
   Places:
   - {fileID: 639950379}
   - {fileID: 541366787}
@@ -8997,6 +9084,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1177523077}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.OrderPlace, Assembly-CSharp
+          m_MethodName: TryAddBun
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1177523075}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryServeOrder
@@ -9985,6 +10084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: BurgerBun
+  IsInit: 1
   Places:
   - {fileID: 639950379}
   - {fileID: 541366787}
@@ -10561,6 +10661,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1352717569}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.FoodPlace, Assembly-CSharp
+          m_MethodName: TryAddFood
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1352717573}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryTransferFood
@@ -12888,6 +13000,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1617312760}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.OrderPlace, Assembly-CSharp
+          m_MethodName: TryAddBun
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1617312758}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryServeOrder
@@ -13639,6 +13763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: HotDogSausage
+  IsInit: 1
   Places:
   - {fileID: 556689272}
   - {fileID: 1700530160}
@@ -13758,6 +13883,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1700530160}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.FoodPlace, Assembly-CSharp
+          m_MethodName: TryAddFood
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1700530164}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryTransferFood
@@ -14990,6 +15127,18 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1836333823}
+          m_TargetAssemblyTypeName: CookingPrototype.Kitchen.FoodPlace, Assembly-CSharp
+          m_MethodName: TryAddFood
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1836333826}
           m_TargetAssemblyTypeName: 
           m_MethodName: TryTransferFood
@@ -16648,6 +16797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: BurgerCutlet
+  IsInit: 1
   Places:
   - {fileID: 748752193}
   - {fileID: 55610697}
@@ -17354,6 +17504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: BurgerTomato
+  IsInit: 0
   Places:
   - {fileID: 639950379}
   - {fileID: 541366787}

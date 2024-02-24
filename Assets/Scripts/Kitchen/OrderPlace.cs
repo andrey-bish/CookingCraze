@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using CookingPrototype.Controllers;
+using JetBrains.Annotations;
 
 namespace CookingPrototype.Kitchen {
 	public sealed class OrderPlace : AbstractFoodPlace {
@@ -15,10 +16,14 @@ namespace CookingPrototype.Kitchen {
 		public event Action    CurOrderUpdated;
 
 		List<Order>  _possibleOrders = new List<Order>();
+		
+		private string _foodName;
 
 		void Start() {
 			_possibleOrders.AddRange(OrdersController.Instance.Orders);
 		}
+		
+		public override void Init(string foodName) => _foodName = foodName;
 
 		bool CanAddFood(Food food) {
 			if ( CurOrder.Contains(food.Name) ) {
@@ -61,6 +66,12 @@ namespace CookingPrototype.Kitchen {
 				return true;
 			}
 			return false;
+		}
+
+		[UsedImplicitly]
+		public void TryAddBun() {
+			if ( CurOrder.Count > 0 ) return;
+			TryPlaceFood(new Food(_foodName));
 		}
 
 		public override void FreePlace() {
