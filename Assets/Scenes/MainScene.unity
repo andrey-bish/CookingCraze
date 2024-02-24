@@ -4202,7 +4202,7 @@ MonoBehaviour:
   CanvasGroup: {fileID: 589401343}
   OrdersCountText: {fileID: 485637300}
   CustomersCountText: {fileID: 529874717}
-  _duration: 0
+  _duration: 0.25
 --- !u!225 &589401343
 CanvasGroup:
   m_ObjectHideFlags: 0
