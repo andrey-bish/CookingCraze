@@ -11,15 +11,14 @@ namespace CookingPrototype.Controllers {
 	public sealed class GameplayController : MonoBehaviour {
 		public static GameplayController Instance { get; private set; }
 
-		public GameObject TapBlock   = null;
-		public WinWindow  WinWindow  = null;
-		public LoseWindow LoseWindow = null;
+		[SerializeField] private GameObject _tapBlock;
+		[SerializeField] private SceneUI _sceneUI;
+		[SerializeField] private TopUI _topUI;
 
-
-		int _ordersTarget = 0;
+		private int _ordersTarget = 0;
 
 		public int OrdersTarget {
-			get { return _ordersTarget; }
+			get => _ordersTarget;
 			set {
 				_ordersTarget = value;
 				TotalOrdersServedChanged?.Invoke();
@@ -37,13 +36,27 @@ namespace CookingPrototype.Controllers {
 			Instance = this;
 		}
 
+		private void Start() {
+			StartLevel();
+		}
+
 		void OnDestroy() {
 			if ( Instance == this ) {
 				Instance = null;
 			}
 		}
 
+		private void StartLevel() {
+			_sceneUI.WinWindow.Hide(true);
+			_sceneUI.LoseWindow.Hide(true);
+			CustomersController.Instance.Init();
+			_topUI.Hide(true);
+			_sceneUI.StartWindow.Show(true);
+			Time.timeScale = 0f;
+		}
+
 		void Init() {
+			StartLevel();
 			TotalOrdersServed = 0;
 			Time.timeScale = 1f;
 			TotalOrdersServedChanged?.Invoke();
@@ -56,19 +69,18 @@ namespace CookingPrototype.Controllers {
 		}
 
 		void EndGame(bool win) {
-			Time.timeScale = 0f;
-			TapBlock?.SetActive(true);
+			_tapBlock.SetActive(true);
 			if ( win ) {
-				WinWindow.Show();
+				_sceneUI.WinWindow.Show(onComplete: () => Time.timeScale = 0f);
 			} else {
-				LoseWindow.Show();
+				_sceneUI.LoseWindow.Show(onComplete: () => Time.timeScale = 0f);
 			}
 		}
 
 		void HideWindows() {
-			TapBlock?.SetActive(false);
-			WinWindow?.Hide();
-			LoseWindow?.Hide();
+			_tapBlock.SetActive(false);
+			_sceneUI.WinWindow.Hide(true);
+			_sceneUI.LoseWindow.Hide(true);
 		}
 
 		[UsedImplicitly]
@@ -83,10 +95,15 @@ namespace CookingPrototype.Controllers {
 			return true;
 		}
 
+		public void StartGame() {
+			_topUI.Show();
+			_sceneUI.StartWindow.Hide();
+			Time.timeScale = 1f;
+		}
+
 		public void Restart() {
-			Init();
-			CustomersController.Instance.Init();
 			HideWindows();
+			Init();
 
 			foreach ( var place in FindObjectsOfType<AbstractFoodPlace>() ) {
 				place.FreePlace();

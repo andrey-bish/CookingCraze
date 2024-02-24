@@ -45,12 +45,8 @@ namespace CookingPrototype.Controllers {
 			}
 		}
 
-		void Start() => Init();
-
 		void Update() {
-			if ( !HasFreePlaces ) {
-				return;
-			}
+			if ( !HasFreePlaces ) return;
 
 			_timer += Time.deltaTime;
 

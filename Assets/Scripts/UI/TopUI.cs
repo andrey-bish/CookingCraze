@@ -2,14 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using CookingPrototype.Controllers;
-
+using Extensions;
 using TMPro;
 
 namespace CookingPrototype.UI {
 	public sealed class TopUI : MonoBehaviour {
 		public Image    OrdersBar          = null;
+		public CanvasGroup CanvasGroup     = null;
 		public TMP_Text OrdersCountText    = null;
 		public TMP_Text CustomersCountText = null;
+
+		[SerializeField] private float _duration = 0.25f;
 
 		void Start() {
 			GameplayController .Instance.TotalOrdersServedChanged       += OnOrdersChanged;
@@ -26,6 +29,16 @@ namespace CookingPrototype.UI {
 			if ( CustomersController.Instance ) {
 				CustomersController.Instance.TotalCustomersGeneratedChanged -= OnCustomersChanged;
 			}
+		}
+
+		public void Show(bool isForce = false) {
+			if ( isForce ) CanvasGroup.Show();
+			else CanvasGroup.Show(_duration);
+		}
+
+		public void Hide(bool isForce = false) {
+			if ( isForce ) CanvasGroup.Hide();
+			else CanvasGroup.Hide(_duration);
 		}
 
 		void OnCustomersChanged() {
