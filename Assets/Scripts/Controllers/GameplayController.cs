@@ -51,14 +51,13 @@ namespace CookingPrototype.Controllers {
 			_sceneUI.LoseWindow.Hide(true);
 			CustomersController.Instance.Init();
 			_topUI.Hide(true);
-			_sceneUI.StartWindow.Show(true);
-			Time.timeScale = 0f;
+			_sceneUI.StartWindow.Show(true, () => Time.timeScale = 0f);
 		}
 
 		void Init() {
+			Time.timeScale = 1f;
 			StartLevel();
 			TotalOrdersServed = 0;
-			Time.timeScale = 1f;
 			TotalOrdersServedChanged?.Invoke();
 		}
 

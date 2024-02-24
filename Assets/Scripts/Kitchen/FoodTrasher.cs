@@ -13,6 +13,7 @@ namespace CookingPrototype.Kitchen {
 		
 		private float _clickTime = 0;
 		private float _clickDelay = 0.5f;
+		private float _lastTimeClick;
 
 		void Start() {
 			_place = GetComponent<FoodPlace>();
@@ -45,17 +46,23 @@ namespace CookingPrototype.Kitchen {
 			_clickedCount = 0;
 			_clickTime = 0;
 		}
-
+		
+		
 		/// <summary>
 		/// Освобождает место по двойному тапу если еда на этом месте сгоревшая.
 		/// Реализация через EventSystems
 		/// </summary>
 		public void OnPointerClick(PointerEventData eventData) {
 			if ( _place.IsFree ) return;
-			
-			if (eventData.clickCount == 2) {
+
+			float currentTimeClick = eventData.clickTime;
+
+			if (Mathf.Abs(currentTimeClick - _lastTimeClick) < 0.75f)
+			{
 				if ( _place.CurFood.CurStatus == Food.FoodStatus.Overcooked ) _place.FreePlace();
 			}
+
+			_lastTimeClick = currentTimeClick;
 		}
 	}
 }

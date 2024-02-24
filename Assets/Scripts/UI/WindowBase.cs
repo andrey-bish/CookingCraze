@@ -20,9 +20,7 @@ namespace CookingPrototype.UI {
 		}
 
 		public void Show (bool isForce = false, Action onComplete = null) {
-			if ( !_isInit ) {
-				Init();
-			}
+			if ( !_isInit ) Init();
 
 			SetProgress();
 			
